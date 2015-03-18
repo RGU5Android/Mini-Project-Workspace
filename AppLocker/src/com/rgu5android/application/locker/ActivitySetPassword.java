@@ -11,7 +11,7 @@ public class ActivitySetPassword extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_activity_reset_password);
+		setContentView(R.layout.activity_set_password);
 	}
 
 	@Override

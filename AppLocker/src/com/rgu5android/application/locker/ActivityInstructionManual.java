@@ -22,7 +22,7 @@ public class ActivityInstructionManual extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_activity_readme_manual);
+		setContentView(R.layout.activity_readme_manual);
 
 		/**
 		 * Unit testing code.
@@ -38,19 +38,10 @@ public class ActivityInstructionManual extends Activity {
 		instructionManualListView = (ListView) findViewById(R.id.list_view_instruction);
 		instructionManualListView.setClickable(false);
 
-		String[] instructionsStrings = new String[] { "Android List View",
-				"Adapter implementation", "Simple List View In Android",
-				"Create List View Android", "Android Example",
-				"List View Source Code", "List View Array Adapter",
-				"Android List View", "Adapter implementation",
-				"Simple List View In Android", "Create List View Android",
-				"Android Example", "List View Source Code",
-				"List View Array Adapter", "Android Example List View",
-				"Android Example List View" };
-
 		ArrayAdapter<String> instructionArrayAdapter = new ArrayAdapter<String>(
 				ActivityInstructionManual.this,
-				android.R.layout.simple_list_item_1, instructionsStrings);
+				android.R.layout.simple_list_item_1, getResources().getStringArray(
+						R.array.instruction_strings));
 
 		instructionManualListView.setAdapter(instructionArrayAdapter);
 

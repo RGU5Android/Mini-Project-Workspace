@@ -10,5 +10,24 @@
     <string name="manage_apps">Manage Apps</string>
     <string name="reading_password">Reading Passphrase</string>
     <string name="set_password">Set Password</string>
+    <string name="para_about_us1">Applocker provides a secure way to lock your applications.</string>
+    <string name="para_about_us2">This application uses the volume key pattern to lock down your
+        applications.The third user does not even know if the application is locked.
+        Hence providing maximum privacy to the user. Applocker is free, easy to use and completely
+        reliable. Now hide all the personal information from the external threats and without
+        any worries.</string>
+    <string name="para_about_us3">The application is submitted as a "Mini Project", to the
+        Information Technology Department of Yeshwantrao Chavan College Of Engineering, Nagpur.
+        Applocker is developed under the guidance of Prof. Swati Kale, by Priyanka Uppalwar,
+        Meghna Bhalotia, Krinjal Wankhede, Chaya Mahale and Himanshu Madavi. The project is
+        co-ordinated by Prof. Nisha Wankhede. </string>
+
+    <string-array name="instruction_strings">
+        <item>Lock Applications:\nSwipe the application from unlocked list to right.</item>
+        <item>Update List:\nJust pull down the list to refresh.</item>
+        <item>Remove Locked Application:\nSwipe application to right.</item>
+        <item>Change Key:\nTap on Set Password, select number of keys, press your volume button pattern twice.</item>
+        <item>Wrong Unlocking Key:\nJust tap on the screen and try again.</item>
+    </string-array>
 
 </resources>
