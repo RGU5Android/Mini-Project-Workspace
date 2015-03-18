@@ -24,17 +24,6 @@ public class ActivityInstructionManual extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_readme_manual);
 
-		/**
-		 * Unit testing code.
-		 */
-
-		SharedPrefUtils.setIntValueSharedPref(this,
-				Constants.SHARED_PREF_PASSWORD_KEY, 1919);
-
-		/**
-		 * Unit testing code.
-		 */
-
 		instructionManualListView = (ListView) findViewById(R.id.list_view_instruction);
 		instructionManualListView.setClickable(false);
 

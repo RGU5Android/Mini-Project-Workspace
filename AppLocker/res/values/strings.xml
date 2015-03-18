@@ -29,5 +29,9 @@
         <item>Change Key:\nTap on Set Password, select number of keys, press your volume button pattern twice.</item>
         <item>Wrong Unlocking Key:\nJust tap on the screen and try again.</item>
     </string-array>
+        <string name="save">Save</string>
+        <string name="cancel">Cancel</string>
+        <string name="instructions_on_the_set_password_page_">Instructions on the set password page.</string>
+        <string name="reset">Reset</string>
 
 </resources>
