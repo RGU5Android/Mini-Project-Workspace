@@ -20,27 +20,31 @@
 
 package com.fortysevendeg.swipelistview;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Handler;
-import android.support.v4.view.MotionEventCompat;
-import android.util.Log;
-import android.view.*;
-import android.widget.AbsListView;
-import android.widget.ListView;
-
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.view.ViewHelper;
+import static com.nineoldandroids.view.ViewHelper.setAlpha;
+import static com.nineoldandroids.view.ViewHelper.setTranslationX;
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.nineoldandroids.view.ViewHelper.setAlpha;
-import static com.nineoldandroids.view.ViewHelper.setTranslationX;
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+import android.graphics.Rect;
+import android.os.Build;
+import android.os.Handler;
+import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Touch listener impl for the SwipeListView
@@ -649,7 +653,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 	}
 
 	private void resetCell() {
-		if (downPosition != ListView.INVALID_POSITION) {
+		if (downPosition != AdapterView.INVALID_POSITION) {
 			if (swipeCurrentAction == SwipeListView.SWIPE_ACTION_CHOICE) {
 				backView.setVisibility(View.VISIBLE);
 			}
@@ -657,7 +661,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 			frontView.setLongClickable(opened.get(downPosition));
 			frontView = null;
 			backView = null;
-			downPosition = ListView.INVALID_POSITION;
+			downPosition = AdapterView.INVALID_POSITION;
 		}
 	}
 
@@ -696,9 +700,10 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 				if (scrollState != AbsListView.OnScrollListener.SCROLL_STATE_FLING
 						&& scrollState != SCROLL_STATE_TOUCH_SCROLL) {
 					listViewMoving = false;
-					downPosition = ListView.INVALID_POSITION;
+					downPosition = AdapterView.INVALID_POSITION;
 					swipeListView.resetScrolling();
 					new Handler().postDelayed(new Runnable() {
+						@Override
 						public void run() {
 							setEnabled(true);
 						}
@@ -772,7 +777,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
 		switch (MotionEventCompat.getActionMasked(motionEvent)) {
 		case MotionEvent.ACTION_DOWN: {
-			if (paused && downPosition != ListView.INVALID_POSITION) {
+			if (paused && downPosition != AdapterView.INVALID_POSITION) {
 				return false;
 			}
 			swipeCurrentAction = SwipeListView.SWIPE_ACTION_NONE;
@@ -820,7 +825,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
 		case MotionEvent.ACTION_UP: {
 			if (velocityTracker == null || !swiping
-					|| downPosition == ListView.INVALID_POSITION) {
+					|| downPosition == AdapterView.INVALID_POSITION) {
 				break;
 			}
 
@@ -881,7 +886,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
 		case MotionEvent.ACTION_MOVE: {
 			if (velocityTracker == null || paused
-					|| downPosition == ListView.INVALID_POSITION) {
+					|| downPosition == AdapterView.INVALID_POSITION) {
 				break;
 			}
 
@@ -961,7 +966,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 				}
 			}
 
-			if (swiping && downPosition != ListView.INVALID_POSITION) {
+			if (swiping && downPosition != AdapterView.INVALID_POSITION) {
 				if (opened.get(downPosition)) {
 					deltaX += openedRight.get(downPosition) ? viewWidth
 							- rightOffset : -viewWidth + leftOffset;

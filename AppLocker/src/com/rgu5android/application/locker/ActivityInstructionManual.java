@@ -40,8 +40,8 @@ public class ActivityInstructionManual extends Activity {
 
 		ArrayAdapter<String> instructionArrayAdapter = new ArrayAdapter<String>(
 				ActivityInstructionManual.this,
-				android.R.layout.simple_list_item_1, getResources().getStringArray(
-						R.array.instruction_strings));
+				android.R.layout.simple_list_item_1, getResources()
+						.getStringArray(R.array.instruction_strings));
 
 		instructionManualListView.setAdapter(instructionArrayAdapter);
 
