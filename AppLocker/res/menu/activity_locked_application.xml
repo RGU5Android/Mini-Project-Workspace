@@ -3,6 +3,11 @@
     tools:context="com.rgu5android.application.locker.ActivityLockedApplication" >
 
     <item
+        android:id="@+id/action_about_us"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/about_us"/>
+    <item
         android:id="@+id/action_instruction_manual"
         android:orderInCategory="100"
         android:showAsAction="never"
@@ -17,10 +22,5 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/set_password"/>
-    <item
-        android:id="@+id/action_about_us"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/about_us"/>
 
 </menu>
