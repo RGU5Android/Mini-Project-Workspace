@@ -33,7 +33,7 @@ public class ActivityManageApplication extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manage_application);
-
+		
 		mSwipelistview = (SwipeListView) findViewById(R.id.example_swipe_lv_list);
 		mApplicationInfoClasses = new ArrayList<POJOApplicationInfo>();
 		mLockedApplicationList = new HashMap<String, Boolean>();

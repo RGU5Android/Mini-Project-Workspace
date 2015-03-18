@@ -48,10 +48,6 @@ public class ActivityReadmeManual extends Activity {
 
 		instructionManualListView.setAdapter(instructionArrayAdapter);
 
-		SharedPreferences.Editor editor = sharedPreferencesPassword.edit();
-		editor.putString("Appname", "Lockstate");
-		editor.commit();
-
 		buttonManageApplication = (Button) findViewById(R.id.btn_manage_apps);
 		buttonManageApplication.setOnClickListener(new OnClickListener() {
 			@Override
