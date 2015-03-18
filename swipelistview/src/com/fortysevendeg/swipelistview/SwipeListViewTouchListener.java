@@ -23,11 +23,10 @@ package com.fortysevendeg.swipelistview;
 import static com.nineoldandroids.view.ViewHelper.setAlpha;
 import static com.nineoldandroids.view.ViewHelper.setTranslationX;
 import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Handler;
@@ -40,7 +39,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.ValueAnimator;
@@ -765,6 +763,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 	 * @see View.OnTouchListener#onTouch(android.view.View,
 	 *      android.view.MotionEvent)
 	 */
+	@SuppressLint({ "ClickableViewAccessibility", "Recycle" })
 	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
 		if (!isSwipeEnabled()) {
