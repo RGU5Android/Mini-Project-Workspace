@@ -44,38 +44,38 @@ public class ActivityManageApplication extends Activity {
 				.setSwipeListViewListener(new BaseSwipeListViewListener() {
 					@Override
 					public void onOpened(int position, boolean toRight) {
-						Log.e(":::SwipeList:::", "onOpened -> " + position);
+						Log.d(":::SwipeList:::", "onOpened -> " + position);
 					}
 
 					@Override
 					public void onClosed(int position, boolean fromRight) {
-						Log.e(":::SwipeList:::", "onClosed -> " + position);
+						Log.d(":::SwipeList:::", "onClosed -> " + position);
 					}
 
 					@Override
 					public void onListChanged() {
-						Log.e(":::SwipeList:::", "onListChanged");
+						Log.d(":::SwipeList:::", "onListChanged");
 					}
 
 					@Override
 					public void onMove(int position, float x) {
-						Log.e(":::SwipeList:::", "onMove -> " + position);
+						Log.d(":::SwipeList:::", "onMove -> " + position);
 					}
 
 					@Override
 					public void onStartOpen(int position, int action,
 							boolean right) {
-						Log.e(":::SwipeList:::", "onStartOpen -> " + position);
+						Log.d(":::SwipeList:::", "onStartOpen -> " + position);
 					}
 
 					@Override
 					public void onStartClose(int position, boolean right) {
-						Log.e(":::SwipeList:::", "onStartClose -> " + position);
+						Log.d(":::SwipeList:::", "onStartClose -> " + position);
 					}
 
 					@Override
 					public void onClickFrontView(int position) {
-						Log.e(":::SwipeList:::", "onClickFrontView-> "
+						Log.d(":::SwipeList:::", "onClickFrontView-> "
 								+ position);
 						mSwipelistview.closeOpenedItems();
 						mSwipelistview.openAnimate(position);
@@ -84,13 +84,13 @@ public class ActivityManageApplication extends Activity {
 					@Override
 					public void onClickBackView(int position) {
 						mSwipelistview.closeAnimate(position);
-						Log.e(":::SwipeList:::", "onClickBackView -> "
+						Log.d(":::SwipeList:::", "onClickBackView -> "
 								+ position);
 					}
 
 					@Override
 					public void onDismiss(int[] reverseSortedPositions) {
-						Log.e(":::SwipeList:::", "onDismiss-> ");
+						Log.d(":::SwipeList:::", "onDismiss-> ");
 					}
 				});
 
