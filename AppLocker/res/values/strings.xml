@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Volume Key App Locker</string>
-    <string name="instruction_manual">Instruction Manual</string>
-    <string name="set_password">Set Password</string>
-    <string name="manage_apps">Manage Apps</string>
-    <string name="title_activity_activity_manage_application">ActivityManageApplication</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_activity_reset_password">ActivityResetPassword</string>
-    <string name="lock_application">Lock Application</string>
-    <string name="application_icon">Application Icon</string>
     <string name="about_us">About Us</string>
+    <string name="app_name">Volume Key App Locker</string>
+    <string name="application_icon">Application Icon</string>
+    <string name="instruction_manual">Instruction Manual</string>
+    <string name="lock_application">Lock Application</string>
+    <string name="locked_apps">Locked Apps</string>
+    <string name="manage_apps">Manage Apps</string>
+    <string name="reading_password">Reading Passphrase</string>
+    <string name="set_password">Set Password</string>
 
 </resources>

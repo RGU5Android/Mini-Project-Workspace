@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.swipelistview.SwipeListView;
@@ -33,7 +34,7 @@ public class ActivityManageApplication extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manage_application);
-		
+
 		mSwipelistview = (SwipeListView) findViewById(R.id.example_swipe_lv_list);
 		mApplicationInfoClasses = new ArrayList<POJOApplicationInfo>();
 		mLockedApplicationList = new HashMap<String, Boolean>();
@@ -117,8 +118,38 @@ public class ActivityManageApplication extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_readme_manual, menu);
+		getMenuInflater().inflate(R.menu.activity_manage_application, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.action_set_password) {
+			Intent intent = new Intent(this, ActivitySetPassword.class);
+			startActivity(intent);
+			this.finish();
+			return true;
+		}
+		if (id == R.id.action_about_us) {
+			Intent intent = new Intent(this, ActivityAboutUs.class);
+			startActivity(intent);
+			this.finish();
+			return true;
+		}
+		if (id == R.id.action_locked_apps) {
+			Intent intent = new Intent(this, ActivityLockedApplication.class);
+			startActivity(intent);
+			this.finish();
+			return true;
+		}
+		if (id == R.id.action_instruction_manual) {
+			Intent intent = new Intent(this, ActivityInstructionManual.class);
+			startActivity(intent);
+			this.finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	public class ApplicationListAsyncTask extends
@@ -166,7 +197,10 @@ public class ActivityManageApplication extends Activity {
 				mProgressDialog.dismiss();
 			}
 		}
+	}
 
+	@Override
+	public void onBackPressed() {
 	}
 
 }

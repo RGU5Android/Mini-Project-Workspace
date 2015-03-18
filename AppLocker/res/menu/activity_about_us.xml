@@ -1,12 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.rgu5android.application.locker.ActivityManageApplication" >
+    tools:context="com.rgu5android.application.locker.ActivityAboutUs" >
 
     <item
         android:id="@+id/action_instruction_manual"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/instruction_manual"/>
+    <item
+        android:id="@+id/action_manage_apps"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/manage_apps"/>
     <item
         android:id="@+id/action_locked_apps"
         android:orderInCategory="100"
@@ -17,10 +22,5 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/set_password"/>
-    <item
-        android:id="@+id/action_about_us"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/about_us"/>
 
 </menu>

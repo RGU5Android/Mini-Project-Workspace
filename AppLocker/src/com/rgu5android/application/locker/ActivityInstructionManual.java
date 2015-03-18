@@ -1,7 +1,6 @@
 package com.rgu5android.application.locker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class ActivityReadmeManual extends Activity {
+public class ActivityInstructionManual extends Activity {
 
 	ListView instructionManualListView;
 	Button buttonManageApplication;
@@ -25,9 +24,16 @@ public class ActivityReadmeManual extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_activity_readme_manual);
 
-		sharedPreferencesPassword = this.getSharedPreferences(
-				Constants.SHARED_PREFERENCES_PASSWORD_FILE,
-				Context.MODE_PRIVATE);
+		/**
+		 * Unit testing code.
+		 */
+
+		SharedPrefUtils.setIntValueSharedPref(this,
+				Constants.SHARED_PREF_PASSWORD_KEY, 1919);
+
+		/**
+		 * Unit testing code.
+		 */
 
 		instructionManualListView = (ListView) findViewById(R.id.list_view_instruction);
 		instructionManualListView.setClickable(false);
@@ -43,8 +49,8 @@ public class ActivityReadmeManual extends Activity {
 				"Android Example List View" };
 
 		ArrayAdapter<String> instructionArrayAdapter = new ArrayAdapter<String>(
-				ActivityReadmeManual.this, android.R.layout.simple_list_item_1,
-				instructionsStrings);
+				ActivityInstructionManual.this,
+				android.R.layout.simple_list_item_1, instructionsStrings);
 
 		instructionManualListView.setAdapter(instructionArrayAdapter);
 
@@ -52,10 +58,10 @@ public class ActivityReadmeManual extends Activity {
 		buttonManageApplication.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ActivityReadmeManual.this,
+				Intent intent = new Intent(ActivityInstructionManual.this,
 						ActivityManageApplication.class);
 				startActivity(intent);
-				ActivityReadmeManual.this.finish();
+				ActivityInstructionManual.this.finish();
 			}
 		});
 
@@ -63,8 +69,8 @@ public class ActivityReadmeManual extends Activity {
 		buttonResetPassword.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ActivityReadmeManual.this,
-						ActivityResetPassword.class);
+				Intent intent = new Intent(ActivityInstructionManual.this,
+						ActivitySetPassword.class);
 				startActivity(intent);
 			}
 		});
@@ -73,7 +79,7 @@ public class ActivityReadmeManual extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_readme_manual, menu);
+		getMenuInflater().inflate(R.menu.activity_instruction_manual, menu);
 		return true;
 	}
 
@@ -81,21 +87,33 @@ public class ActivityReadmeManual extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 		if (id == R.id.action_manage_apps) {
-			Intent intent = new Intent(ActivityReadmeManual.this,
-					ActivityManageApplication.class);
+			Intent intent = new Intent(this, ActivityManageApplication.class);
 			startActivity(intent);
-			ActivityReadmeManual.this.finish();
+			this.finish();
 			return true;
 		}
-		if (id == R.id.action_reset_password) {
-			Intent intent = new Intent(ActivityReadmeManual.this,
-					ActivityResetPassword.class);
+		if (id == R.id.action_set_password) {
+			Intent intent = new Intent(this, ActivitySetPassword.class);
 			startActivity(intent);
+			this.finish();
 			return true;
 		}
 		if (id == R.id.action_about_us) {
+			Intent intent = new Intent(this, ActivityAboutUs.class);
+			startActivity(intent);
+			this.finish();
+			return true;
+		}
+		if (id == R.id.action_locked_apps) {
+			Intent intent = new Intent(this, ActivityLockedApplication.class);
+			startActivity(intent);
+			this.finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
 	}
 }

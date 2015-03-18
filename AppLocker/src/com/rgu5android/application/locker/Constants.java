@@ -6,8 +6,8 @@ import java.util.Date;
 public class Constants {
 
 	public static final String LOGGING_TAG = ":::ApplicationLock:::";
-	public static final String SHARED_PREFERENCES_PASSWORD_FILE = "com_rgu5android_shared_preferences_password";
-	public static final String SHARED_PREFERENCES_LOCKED_APPLICATION_FILE = "com_rgu5android_shared_preferences_locked_application";
+
+	public static final String SHARED_PREF_PASSWORD_KEY = "lock_password_key";
 
 	/**
 	 * @return Used this for logging in application as key

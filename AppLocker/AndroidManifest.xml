@@ -14,8 +14,20 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Material" >
         <activity
-            android:name=".ActivityReadmeManual"
+            android:name=".ActivityInstructionManual"
             android:label="@string/instruction_manual" >
+        </activity>
+        <activity
+            android:name=".ActivityManageApplication"
+            android:label="@string/manage_apps" >
+        </activity>
+        <activity
+            android:name=".ActivitySetPassword"
+            android:label="@string/set_password" >
+        </activity>
+        <activity
+            android:name=".ActivityPasswordChecker"
+            android:label="@string/reading_password" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,12 +35,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.rgu5android.application.locker.ActivityManageApplication"
-            android:label="@string/manage_apps" >
+            android:name=".ActivityAboutUs"
+            android:label="@string/about_us" >
         </activity>
         <activity
-            android:name="com.rgu5android.application.locker.ActivityResetPassword"
-            android:label="@string/set_password" >
+            android:name=".ActivityLockedApplication"
+            android:label="@string/locked_apps" >
         </activity>
     </application>
 
