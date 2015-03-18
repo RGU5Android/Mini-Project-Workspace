@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+/Users/RGU5Android/Documents/Mini-Project-Workspace/.metadata/.plugins/org.eclipse.jdt.core
+1704669604.index
+297063718.index
+3193818212.index
+3257893395.index
