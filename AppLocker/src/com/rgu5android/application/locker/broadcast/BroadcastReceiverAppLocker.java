@@ -1,4 +1,6 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.broadcast;
+
+import com.rgu5android.application.locker.service.ServiceAppLocker;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;

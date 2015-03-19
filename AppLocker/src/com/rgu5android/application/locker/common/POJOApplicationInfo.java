@@ -1,4 +1,4 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.common;
 
 import android.graphics.drawable.Drawable;
 

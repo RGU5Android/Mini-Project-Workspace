@@ -1,4 +1,4 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.common.sharedpref;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.common;
 
 import java.util.List;
 
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fortysevendeg.swipelistview.SwipeListView;
+import com.rgu5android.application.locker.R;
+import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
 
 public class ListViewManageApplicationAdapter extends BaseAdapter {
 

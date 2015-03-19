@@ -1,12 +1,13 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ActivityAboutUs extends Activity {
+import com.rgu5android.application.locker.R;
+
+public class ActivityAboutUs extends ActivityBase {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

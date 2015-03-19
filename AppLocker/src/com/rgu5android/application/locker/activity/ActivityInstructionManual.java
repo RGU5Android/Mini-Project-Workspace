@@ -1,6 +1,5 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class ActivityInstructionManual extends Activity {
+import com.rgu5android.application.locker.R;
+
+public class ActivityInstructionManual extends ActivityBase {
 
 	ListView instructionManualListView;
 	Button buttonManageApplication;

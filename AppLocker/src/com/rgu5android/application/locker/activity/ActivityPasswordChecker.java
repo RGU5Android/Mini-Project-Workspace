@@ -1,15 +1,15 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.activity;
 
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningServiceInfo;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-public class ActivityPasswordChecker extends Activity {
+import com.rgu5android.application.locker.R;
+import com.rgu5android.application.locker.common.Constants;
+import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
+
+public class ActivityPasswordChecker extends ActivityBase {
 
 	StringBuffer mPasswordStringBuffer = null;
 	StringBuffer mStoredPasswordString = null;
@@ -18,11 +18,6 @@ public class ActivityPasswordChecker extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_password_checker);
-
-		if (!isMyServiceRunning(ServiceAppLocker.class)) {
-			ActivityPasswordChecker.this.startService(new Intent(
-					ActivityPasswordChecker.this, ServiceAppLocker.class));
-		}
 
 		mStoredPasswordString = new StringBuffer(""
 				+ SharedPrefUtils.getIntValueSharedPref(
@@ -99,17 +94,4 @@ public class ActivityPasswordChecker extends Activity {
 		super.onDestroy();
 		// android.os.Process.killProcess(android.os.Process.myPid());
 	}
-
-	protected boolean isMyServiceRunning(Class<?> serviceClass) {
-		ActivityManager manager = (ActivityManager) ActivityPasswordChecker.this
-				.getSystemService(Context.ACTIVITY_SERVICE);
-		for (RunningServiceInfo service : manager
-				.getRunningServices(Integer.MAX_VALUE)) {
-			if (serviceClass.getName().equals(service.service.getClassName())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 }

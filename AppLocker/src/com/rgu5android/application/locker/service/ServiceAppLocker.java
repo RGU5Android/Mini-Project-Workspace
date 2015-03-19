@@ -1,4 +1,4 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.service;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.rgu5android.application.locker.activity.ActivityAppLocker;
+import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
 
 import android.app.ActivityManager;
 import android.app.Service;

@@ -1,11 +1,10 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.activity;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -21,8 +20,12 @@ import android.view.MenuItem;
 
 import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.swipelistview.SwipeListView;
+import com.rgu5android.application.locker.R;
+import com.rgu5android.application.locker.common.ListViewManageApplicationAdapter;
+import com.rgu5android.application.locker.common.POJOApplicationInfo;
+import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
 
-public class ActivityManageApplication extends Activity {
+public class ActivityManageApplication extends ActivityBase {
 
 	SwipeListView mSwipelistview;
 	ListViewManageApplicationAdapter mListViewCellAdaptor;

@@ -1,6 +1,5 @@
-package com.rgu5android.application.locker;
+package com.rgu5android.application.locker.activity;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +9,13 @@ import android.os.IBinder;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.rgu5android.application.locker.ServiceAppLocker.ServiceBinder;
+import com.rgu5android.application.locker.R;
+import com.rgu5android.application.locker.common.Constants;
+import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
+import com.rgu5android.application.locker.service.ServiceAppLocker;
+import com.rgu5android.application.locker.service.ServiceAppLocker.ServiceBinder;
 
-public class ActivityAppLocker extends Activity {
+public class ActivityAppLocker extends ActivityBase {
 	private String mStoredPasswordString;
 	private StringBuffer mPasswordStringBuffer;
 	private ServiceAppLocker mServiceAppLocker;
