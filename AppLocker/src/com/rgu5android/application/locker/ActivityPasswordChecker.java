@@ -1,9 +1,11 @@
 package com.rgu5android.application.locker;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -16,6 +18,11 @@ public class ActivityPasswordChecker extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_password_checker);
+
+		if (!isMyServiceRunning(ServiceAppLocker.class)) {
+			ActivityPasswordChecker.this.startService(new Intent(
+					ActivityPasswordChecker.this, ServiceAppLocker.class));
+		}
 
 		mStoredPasswordString = new StringBuffer(""
 				+ SharedPrefUtils.getIntValueSharedPref(
@@ -52,10 +59,6 @@ public class ActivityPasswordChecker extends Activity {
 	}
 
 	private void checkPassword() {
-		Log.e("mPasswordStringBuffer", mPasswordStringBuffer.toString() + " "
-				+ mPasswordStringBuffer.length());
-		Log.e("mStoredStringBuffer", mStoredPasswordString.toString() + " "
-				+ mStoredPasswordString.length());
 		if (mPasswordStringBuffer.length() == 4) {
 			if (mPasswordStringBuffer.toString().trim()
 					.equalsIgnoreCase(mStoredPasswordString.toString().trim())) {
@@ -76,10 +79,11 @@ public class ActivityPasswordChecker extends Activity {
 				Toast.makeText(ActivityPasswordChecker.this,
 						"Invalid passphrase, hence restarting.",
 						Toast.LENGTH_SHORT).show();
-				Intent restartApplicationIntent = getBaseContext().getPackageManager()
-						.getLaunchIntentForPackage(
+				Intent restartApplicationIntent = getBaseContext()
+						.getPackageManager().getLaunchIntentForPackage(
 								getBaseContext().getPackageName());
-				restartApplicationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				restartApplicationIntent
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(restartApplicationIntent);
 			}
 		}
@@ -95,4 +99,17 @@ public class ActivityPasswordChecker extends Activity {
 		super.onDestroy();
 		// android.os.Process.killProcess(android.os.Process.myPid());
 	}
+
+	protected boolean isMyServiceRunning(Class<?> serviceClass) {
+		ActivityManager manager = (ActivityManager) ActivityPasswordChecker.this
+				.getSystemService(Context.ACTIVITY_SERVICE);
+		for (RunningServiceInfo service : manager
+				.getRunningServices(Integer.MAX_VALUE)) {
+			if (serviceClass.getName().equals(service.service.getClassName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

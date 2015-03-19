@@ -8,6 +8,9 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="22" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -27,8 +30,8 @@
         </activity>
         <activity
             android:name=".ActivityPasswordChecker"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:label="@string/reading_password" >
+            android:label="@string/reading_password"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +46,20 @@
             android:name=".ActivityLockedApplication"
             android:label="@string/locked_apps" >
         </activity>
+        <activity
+            android:name=".ActivityAppLocker"
+            android:label="@string/reading_password"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <receiver android:name="com.rgu5android.application.locker.BroadcastReceiverAppLocker" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.rgu5android.application.locker.ServiceAppLocker" />
     </application>
 
 </manifest>
