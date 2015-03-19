@@ -204,9 +204,6 @@ public class ActivityManageApplication extends ActivityBase {
 
 	@Override
 	public void onBackPressed() {
-		Intent intent = new Intent(this, ActivityInstructionManual.class);
-		startActivity(intent);
-		this.finish();
 	}
 
 }
