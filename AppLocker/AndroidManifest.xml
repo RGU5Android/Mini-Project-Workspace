@@ -27,6 +27,7 @@
         </activity>
         <activity
             android:name=".ActivityPasswordChecker"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
             android:label="@string/reading_password" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

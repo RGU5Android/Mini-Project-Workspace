@@ -59,6 +59,13 @@ public class ActivityPasswordChecker extends Activity {
 		if (mPasswordStringBuffer.length() == 4) {
 			if (mPasswordStringBuffer.toString().trim()
 					.equalsIgnoreCase(mStoredPasswordString.toString().trim())) {
+				Toast.makeText(
+						ActivityPasswordChecker.this,
+						"Passphrase: "
+								+ mPasswordStringBuffer.toString()
+										.replaceAll("1", " + ")
+										.replaceAll("9", " - "),
+						Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(ActivityPasswordChecker.this,
 						ActivityInstructionManual.class);
 				startActivity(intent);
@@ -67,17 +74,14 @@ public class ActivityPasswordChecker extends Activity {
 				mPasswordStringBuffer = null;
 				mPasswordStringBuffer = new StringBuffer();
 				Toast.makeText(ActivityPasswordChecker.this,
-						"Invalid passphrase, hence resetting.",
+						"Invalid passphrase, hence restarting.",
 						Toast.LENGTH_SHORT).show();
+				Intent restartApplicationIntent = getBaseContext().getPackageManager()
+						.getLaunchIntentForPackage(
+								getBaseContext().getPackageName());
+				restartApplicationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(restartApplicationIntent);
 			}
-		} else {
-			Toast.makeText(
-					ActivityPasswordChecker.this,
-					"Passphrase: "
-							+ mPasswordStringBuffer.toString()
-									.replaceAll("1", " + ")
-									.replaceAll("9", " - "), Toast.LENGTH_SHORT)
-					.show();
 		}
 	}
 
