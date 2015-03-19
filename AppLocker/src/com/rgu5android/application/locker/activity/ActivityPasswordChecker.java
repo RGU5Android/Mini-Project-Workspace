@@ -87,11 +87,11 @@ public class ActivityPasswordChecker extends ActivityBase {
 	@Override
 	public void onBackPressed() {
 		this.finish();
+		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		// android.os.Process.killProcess(android.os.Process.myPid());
 	}
 }

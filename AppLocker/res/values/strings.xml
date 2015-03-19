@@ -2,7 +2,7 @@
 <resources>
 
     <string name="about_us">About Us</string>
-    <string name="app_name">Volume Locker</string>
+    <string name="app_name">AppLocker</string>
     <string name="application_icon">Application Icon</string>
     <string name="instruction_manual">Instruction Manual</string>
     <string name="lock_application">Lock Application</string>
