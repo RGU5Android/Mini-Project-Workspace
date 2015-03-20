@@ -24,11 +24,6 @@ public class BroadcastReceiverAppLocker extends BroadcastReceiver {
 				context.startService(new Intent(context, ServiceAppLocker.class));
 			}
 			break;
-		case Intent.ACTION_SCREEN_ON:
-			if (!isMyServiceRunning(ServiceAppLocker.class)) {
-				context.startService(new Intent(context, ServiceAppLocker.class));
-			}
-			break;
 		}
 	}
 
