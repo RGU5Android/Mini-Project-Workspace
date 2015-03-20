@@ -1,5 +1,10 @@
 package com.rgu5android.application.locker.activity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,9 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.rgu5android.application.locker.R;
 
@@ -28,12 +33,20 @@ public class ActivityInstructionManual extends ActivityBase {
 		instructionManualListView = (ListView) findViewById(R.id.list_view_instruction);
 		instructionManualListView.setClickable(false);
 
-		ArrayAdapter<String> instructionArrayAdapter = new ArrayAdapter<String>(
-				ActivityInstructionManual.this,
-				android.R.layout.simple_list_item_1, getResources()
-						.getStringArray(R.array.instruction_strings));
+		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+		Map<String, String> instruction = new HashMap<String, String>(2);
 
-		instructionManualListView.setAdapter(instructionArrayAdapter);
+		instruction.put("header", "Lock Applications");
+		instruction.put("content",
+				"\tSwipe the application from unlocked list to right.");
+		data.add(instruction);
+
+		SimpleAdapter adapter = new SimpleAdapter(this, data,
+				android.R.layout.simple_list_item_2, new String[] { "header",
+						"content" }, new int[] { android.R.id.text1,
+						android.R.id.text2 });
+
+		instructionManualListView.setAdapter(adapter);
 
 		buttonManageApplication = (Button) findViewById(R.id.btn_manage_apps);
 		buttonManageApplication.setOnClickListener(new OnClickListener() {
