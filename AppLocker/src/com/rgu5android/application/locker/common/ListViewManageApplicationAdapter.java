@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.fortysevendeg.swipelistview.SwipeListView;
 import com.rgu5android.application.locker.R;
+import com.rgu5android.application.locker.common.database.AppLockerDatabaseController;
 import com.rgu5android.application.locker.common.sharedpref.SharedPrefUtils;
 
 public class ListViewManageApplicationAdapter extends BaseAdapter {
@@ -71,12 +72,30 @@ public class ListViewManageApplicationAdapter extends BaseAdapter {
 								(applicationInfoClass.getApplicationLocked()));
 
 						if (applicationInfoClass.getApplicationLocked()) {
+							try {
+								(new AppLockerDatabaseController())
+										.insertPackage(
+												context,
+												applicationInfoClass
+														.getApplicationPackage());
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
 							Toast.makeText(
 									context,
 									applicationInfoClass.getApplicationName()
 											+ " has been locked.",
 									Toast.LENGTH_LONG).show();
 						} else {
+							try {
+								(new AppLockerDatabaseController())
+										.deletePackage(
+												context,
+												applicationInfoClass
+														.getApplicationPackage());
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
 							SharedPrefUtils.removeKey(context,
 									applicationInfoClass
 											.getApplicationPackage());

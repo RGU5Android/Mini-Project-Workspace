@@ -25,10 +25,7 @@ class AppLockerOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase sqLiteDatabase) {
 		String createTableQuery = "CREATE TABLE " + Constants.TABLENAME + " ( "
-				+ Constants.COLUMN_ID + " "
-				+ "INTEGER PRIMARY KEY AUTOINCREMENT , "
-				+ Constants.COLUMN_PACKAGE_NAME + " "
-				+ "VARCHAR(30) UNIQUE ) ;";
+				+ Constants.COLUMN_PACKAGE_NAME + " " + "TEXT UNIQUE ) ;";
 		sqLiteDatabase.execSQL(createTableQuery);
 	}
 

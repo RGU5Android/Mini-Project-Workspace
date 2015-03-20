@@ -58,7 +58,7 @@ public class AppLockerDatabaseController {
 		if (cursor.moveToFirst()) {
 			lockedApplicationList = new ArrayList<String>();
 			while (cursor.isAfterLast() == false) {
-				lockedApplicationList.add(cursor.getString(1));
+				lockedApplicationList.add(cursor.getString(0));
 				cursor.moveToNext();
 			}
 		}
